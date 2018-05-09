@@ -4,6 +4,12 @@ require 'logger'
 require 'mini_record'
 require 'minitest/autorun'
 
+module Kernel
+  def silence_stream(stream)
+    yield
+  end
+end
+
 class ActiveRecord::Base
   class << self
     attr_accessor :logs
